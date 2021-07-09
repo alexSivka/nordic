@@ -11,12 +11,13 @@ class Router {
     public function run()
     {
         $controller = new SiteController();
+        $method = strtoupper($_SERVER['REQUEST_METHOD']);
 
-        if($_SERVER['REQUEST_METHOD'] == 'GET') {
+        if($method == 'GET') {
             $controller->index();
         }
 
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if($method == 'POST') {
             $controller->score();
         }
     }
